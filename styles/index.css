@@ -386,5 +386,74 @@ html {
     color: #fff;
     padding: 6px 10px;
     border-radius: 5px;
-    font-family: Arial, sans-serif;
 }
+
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between;   
+    align-items: center;              
+    margin: 10px auto;
+    max-width: 1000px;               
+}
+
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    width: 48%;
+}
+
+
+.label {
+    font-size: 14px;
+    color: #b8b2b2;
+    margin-bottom: 5px;
+}
+
+
+.input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    outline: none;
+    width: 20%;  
+}
+
+
+.input:focus {
+    border-color: #727375; 
+}
+
+
+.button {
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #727375;  
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.button:hover {
+    background-color: #0056b3;  
+}
+
+
+#search-coordinates, #search-name {
+    margin-bottom: 20px; 
+}
+
+.footer {
+  font-size: 5px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+

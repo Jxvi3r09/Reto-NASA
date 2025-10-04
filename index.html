@@ -99,12 +99,36 @@
             </svg>
         </div>
     </div>
+<!-- Sección del mapa -->
+<section id="scroll">
+    <div id="map"></div>
+    <div id="coords">Lat: --, Lng: --</div>
 
-    <!-- Sección del mapa -->
-    <section id="scroll">
-        <div id="map"></div>
-        <div id="coords">Lat: --, Lng: --</div>
-    </section>
+
+<!-- Barra de búsqueda por coordenada -->
+<div id="search-coordinates" class="search-box">
+    <label for="latInput" class="label">Buscar por Coordenada:</label>
+    <input type="text" id="latInput" placeholder="latitud" class="input" oninput="validateCoordinatesInput(event, 'lat')">
+    <input type="text" id="lngInput" placeholder="longitud" class="input" oninput="validateCoordinatesInput(event, 'lng')">
+    <button id="searchCoordsBtn" class="button" onclick="searchByCoordinates()">Buscar Coordenadas</button>
+</div>
+
+<!-- Barra de búsqueda por nombre/pais -->
+<div id="search-name" class="search-box">
+    <label for="textInput" class="label">Buscar por Nombre:</label>
+    <input type="text" id="textInput" placeholder="ejemplo: ee.uu" class="input" oninput="validateTextInput(event)">
+    <button id="searchNameBtn" class="button" onclick="searchByName()">Buscar por Nombre</button>
+</div>
+
+
+
+
+</section>
+
+<footer class="footer">
+    <h1>Todos los derechos de autor estan reservados - politica de copytright 2025 <br>
+    Los datos proporcionados aqui son totalmente legales y disponbiles en la pagina de NASA</h1>
+</footer>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
