@@ -36,3 +36,5 @@ map.on('click', function(e) {
     .bindPopup(`Coordenadas:<br>Lat: ${lat}<br>Lng: ${lng}`)
     .openPopup();
 });
+
+

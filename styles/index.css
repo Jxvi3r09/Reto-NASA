@@ -1,44 +1,390 @@
-/* * {
-    padding: 0;
-    margin:0;
-} */
-#cover-page {
-    width: 100%;
-    height: 100%;
-    background-size: cover;        /* Ajuste clave: cubre todo y mantiene proporción */
-    background-position: center;   /* Centra la imagen */
-    background-repeat: no-repeat;  /* Evita repetición */
-    /* Estilos de contenido */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        #cover-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            background: radial-gradient(ellipse at center, #001a33 0%, #000814 50%, #000000 100%);
+            overflow: hidden;
+        }
+
+        /* Animated Earth-like background */
+        .earth-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(30, 144, 255, 0.15) 0%,
+                rgba(34, 139, 34, 0.12) 30%,
+                rgba(0, 100, 0, 0.08) 50%,
+                transparent 70%);
+            border-radius: 50%;
+            animation: earthRotate 60s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes earthRotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Continents overlay */
+        .continents {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.08;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M30,40 Q35,35 40,40 T50,40 Q55,38 60,42 L65,45 Q70,48 65,52 L60,55 Q55,58 50,55 T40,52 Q35,50 30,52 Z" fill="%23228B22" opacity="0.5"/><path d="M20,60 L25,58 Q30,56 35,60 L40,65 Q42,70 38,72 L32,70 Q28,68 24,65 Z" fill="%23228B22" opacity="0.5"/><ellipse cx="70" cy="30" rx="8" ry="12" fill="%23228B22" opacity="0.4"/></svg>');
+            background-size: 120%;
+            background-position: center;
+            z-index: 1;
+        }
+
+        /* Atmospheric glow */
+        .atmosphere {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, 
+                rgba(135, 206, 250, 0.1) 0%,
+                rgba(30, 144, 255, 0.05) 40%,
+                transparent 70%);
+            border-radius: 50%;
+            animation: atmospherePulse 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes atmospherePulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.5; }
+        }
+
+        /* Stars background */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        .star:nth-child(1) { width: 2px; height: 2px; top: 20%; left: 10%; animation-delay: 0s; }
+        .star:nth-child(2) { width: 1px; height: 1px; top: 40%; left: 80%; animation-delay: 1s; }
+        .star:nth-child(3) { width: 2px; height: 2px; top: 70%; left: 20%; animation-delay: 2s; }
+        .star:nth-child(4) { width: 1px; height: 1px; top: 15%; left: 90%; animation-delay: 1.5s; }
+        .star:nth-child(5) { width: 2px; height: 2px; top: 85%; left: 70%; animation-delay: 0.5s; }
+        .star:nth-child(6) { width: 1px; height: 1px; top: 50%; left: 5%; animation-delay: 2.5s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Climate zones visualization */
+        .climate-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .climate-particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 25s infinite ease-in-out;
+        }
+
+        .climate-particle.ocean {
+            background: radial-gradient(circle, rgba(30,144,255,0.3) 0%, rgba(0,105,148,0.15) 50%, transparent 100%);
+        }
+
+        .climate-particle.forest {
+            background: radial-gradient(circle, rgba(34,139,34,0.3) 0%, rgba(0,100,0,0.15) 50%, transparent 100%);
+        }
+
+        .climate-particle.heat {
+            background: radial-gradient(circle, rgba(255,140,0,0.3) 0%, rgba(255,69,0,0.15) 50%, transparent 100%);
+        }
+
+        .climate-particle:nth-child(1) { width: 250px; height: 250px; top: -100px; left: -100px; animation-delay: 0s; }
+        .climate-particle:nth-child(2) { width: 300px; height: 300px; top: 40%; right: -120px; animation-delay: 4s; }
+        .climate-particle:nth-child(3) { width: 200px; height: 200px; bottom: -80px; left: 35%; animation-delay: 8s; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -40px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(30,144,255,0.2);
+            border: 1px solid rgba(30,144,255,0.5);
+            border-radius: 50px;
+            color: #64b5f6;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.02); }
+        }
+
+        .title {
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 30%, #1e88e5 60%, #ff8a65 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 30px rgba(30,144,255,0.4));
+        }
+
+        @keyframes titleGlow {
+            from { filter: brightness(1) drop-shadow(0 0 30px rgba(30,144,255,0.4)); }
+            to { filter: brightness(1.15) drop-shadow(0 0 40px rgba(30,144,255,0.6)); }
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            line-height: 1.6;
+            color: #b8c5d6;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            background: rgba(30,144,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(30,144,255,0.3);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            min-width: 180px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(30,144,255,0.15);
+            border-color: rgba(30,144,255,0.6);
+            box-shadow: 0 10px 40px rgba(30,144,255,0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #64b5f6;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #90a4ae;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(30,144,255,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(30,144,255,0.6);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            z-index: 2;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: #64b5f6;
+        }
+
+        /* Globe visualization */
+        .globe-viz {
+            position: absolute;
+            top: 15%;
+            right: 8%;
+            width: 180px;
+            height: 180px;
+            z-index: 1;
+        }
+
+        .globe-container {
+            animation: globeFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes globeFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                gap: 1rem;
+            }
+            
+            .stat-item {
+                min-width: 140px;
+                padding: 1rem 1.5rem;
+            }
+
+            .badge {
+                font-size: 0.75rem;
+            }
+
+            .globe-viz {
+                display: none;
+            }
+
+            .earth-bg {
+                width: 500px;
+                height: 500px;
+            }
+
+            .atmosphere {
+                width: 600px;
+                height: 600px;
+            }
+        }
+
+
+
+/* api stilos */
+html {
+    scroll-behavior: smooth;
+}
+.cta-button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #1e88e5;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.cta-button:hover {
+    background: #1565c0;
+}
+#scroll {
+    height: 100vh;
+    background: #000000;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center;     
-    color: white;
-    font-family: sans-serif;
 }
-
-body {
-    background-image: url('../img/fondo.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    width: 100%;
-    overflow-x: hidden;
+#map {
+    height: 80vh;
+    width: 90%;
+    border-radius: 10px;
 }
-
-.title {
-    text-align: center;
-    color: white;
-    font-size: 3em;
-    margin-top: 20%;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.subtitle {
-    text-align: center;
-    color: white;
-    font-size: 1.5em;
+#coords {
     margin-top: 10px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
 }

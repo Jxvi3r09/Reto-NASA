@@ -1,0 +1,28 @@
+.leaflet-popup-content-wrapper {
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+}
+
+.leaflet-control-zoom a {
+  background-color: #2ecc71; /* verde */
+  color: white;
+  font-size: 18px;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #27ae60;
+}
+
+.leaflet-container {
+  cursor: crosshair;
+}
+
+.leaflet-tooltip {
+  background: #ffcc00;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
