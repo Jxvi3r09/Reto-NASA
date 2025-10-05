@@ -6,7 +6,7 @@
 }
 
 .leaflet-control-zoom a {
-  background-color: #2ecc71; /* verde */
+  background-color: #565b58; /* verde */
   color: white;
   font-size: 18px;
 }
@@ -26,3 +26,5 @@
   border-radius: 5px;
   padding: 4px 8px;
 }
+
+

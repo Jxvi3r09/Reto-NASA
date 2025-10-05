@@ -3,135 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data4Earth - Anomalía Radiante</title>
-<link rel="stylesheet" href="styles/index.css">
+<title>Data4Earth</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<link rel="stylesheet" href="styles/api.css">
+<link rel="stylesheet" href="styles/index.css">
+<link rel="stylesheet" href="styles/globe_gl.css">
+<link rel="stylesheet" href="styles/leaftlet.css">
+
 
 </head>
+
 <body>
-    <div id="cover-page">
-        <!-- Stars background -->
-        <div class="stars">
-            <div class="star"></div>
-            <div class="star"></div>
-            <div class="star"></div>
-            <div class="star"></div>
-            <div class="star"></div>
-            <div class="star"></div>
-        </div>
-
-        <!-- Earth visualization -->
-        <div class="earth-bg"></div>
-        <div class="atmosphere"></div>
-        <div class="continents"></div>
-
-        <!-- Climate particles -->
-        <div class="climate-particles">
-            <div class="climate-particle ocean"></div>
-            <div class="climate-particle forest"></div>
-            <div class="climate-particle heat"></div>
-        </div>
-
-        <!-- Globe icon -->
-        <div class="globe-viz">
-            <svg viewBox="0 0 100 100" class="globe-container">
-                <!-- Globe outline -->
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#1e88e5" stroke-width="1.5" opacity="0.6"/>
-                
-                <!-- Latitude lines -->
-                <ellipse cx="50" cy="50" rx="40" ry="10" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
-                <ellipse cx="50" cy="50" rx="40" ry="20" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
-                <ellipse cx="50" cy="50" rx="40" ry="30" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
-                
-                <!-- Longitude lines -->
-                <ellipse cx="50" cy="50" rx="10" ry="40" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
-                <ellipse cx="50" cy="50" rx="20" ry="40" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
-                <ellipse cx="50" cy="50" rx="30" ry="40" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
-                
-                <!-- South America highlight -->
-                <path d="M 48,35 Q 52,38 50,45 Q 48,52 46,58 Q 44,62 42,60 Q 40,58 42,54 Q 44,48 46,42 Q 47,38 48,35 Z" 
-                      fill="#ff8a65" opacity="0.7">
-                    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite"/>
-                </path>
-                
-                <!-- Glow effect -->
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#1e88e5" stroke-width="2" opacity="0.3">
-                    <animate attributeName="r" values="40;42;40" dur="4s" repeatCount="indefinite"/>
-                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
-                </circle>
-            </svg>
-        </div>
-
-        <div class="content-wrapper">
-            <div class="badge">🌍 Data4Earth 2000-2025</div>
-            
-            <h1 class="title">ANOMALÍA RADIANTE</h1>
-            
-            <p class="subtitle">
-                Los 25 Años del Calentamiento de Sudamérica<br>
-                El Desequilibrio Energético Global en Sudamérica Visto por el Satélite Terra
-            </p>
-
-            <div class="stats-container">
-                <div class="stat-item">
-                    <span class="stat-number">25</span>
-                    <span class="stat-label">Años de Datos</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">+2.5°C</span>
-                    <span class="stat-label">Incremento</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">Terra</span>
-                    <span class="stat-label">Satélite NASA</span>
-                </div>
-            </div>
-
-            <a href="#scroll" class="cta-button">
-                Explorar los Datos →
-            </a>
-        </div>
-
-        <div class="scroll-indicator">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
+<!-- PORTADA PRINCIPAL -->
+<div id="cover-page">
+    <div class="stars">
+    <div class="star"></div><div class="star"></div><div class="star"></div>
+    <div class="star"></div><div class="star"></div><div class="star"></div>
     </div>
-<!-- Sección del mapa -->
-<section id="scroll">
+
+    <div class="earth-bg"></div>
+    <div class="atmosphere"></div>
+    <div class="continents"></div>
+
+    <div class="climate-particles">
+    <div class="climate-particle ocean"></div>
+    <div class="climate-particle forest"></div>
+    <div class="climate-particle heat"></div>
+    </div>
+
+    <div class="globe-viz">
+    <svg viewBox="0 0 100 100" class="globe-container">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#1e88e5" stroke-width="1.5" opacity="0.6"/>
+        <ellipse cx="50" cy="50" rx="40" ry="10" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
+        <ellipse cx="50" cy="50" rx="40" ry="20" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
+        <ellipse cx="50" cy="50" rx="40" ry="30" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
+        <ellipse cx="50" cy="50" rx="10" ry="40" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
+        <ellipse cx="50" cy="50" rx="20" ry="40" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
+        <ellipse cx="50" cy="50" rx="30" ry="40" fill="none" stroke="#64b5f6" stroke-width="0.8" opacity="0.4"/>
+        <path d="M 48,35 Q 52,38 50,45 Q 48,52 46,58 Q 44,62 42,60 Q 40,58 42,54 Q 44,48 46,42 Q 47,38 48,35 Z"
+            fill="#ff8a65" opacity="0.7">
+        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite"/>
+        </path>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#1e88e5" stroke-width="2" opacity="0.3">
+        <animate attributeName="r" values="40;42;40" dur="4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+        </circle>
+    </svg>
+    </div>
+
+    <div class="content-wrapper">
+    <div class="badge">🌍 Data4Earth</div>
+    <h1 class="title">ANOMALÍA RADIANTE</h1>
+    <p class="subtitle">
+        Los 25 años del calentamiento de Sudamérica.<br>
+        El desequilibrio energético global visto desde el satélite Terra.
+    </p>
+
+    <div class="stats-container">
+        <div class="stat-item"><span class="stat-number">25</span><span class="stat-label">Años de Datos</span></div>
+        <div class="stat-item"><span class="stat-number">+2.5°C</span><span class="stat-label">Incremento Medio</span></div>
+        <div class="stat-item"><span class="stat-number">Terra</span><span class="stat-label">Satélite NASA</span></div>
+    </div>
+
+    <a href="#globe-section" class="cta-button">Explorar el Globo</a>
+    </div>
+
+    <div class="scroll-indicator">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="30" height="30">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+    </div>
+</div>
+
+<!-- GLOBO + LEAFLET -->
+<section id="globe-section">
+
+<!-- Globo centrado con borde y padding -->
+<div class="globo-wrapper">
+    <div id="globeViz"></div>
+</div>
+
+<!-- Mapa de Leaflet, desplazado a la izquierda -->
+<div class="map-wrapper move-left">
+
+
+<button class="alert-button map-alert">
+<!-- Icono lluvia: gota -->
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8 0C8 0 2 6 2 10a6 6 0 0 0 12 0c0-4-6-10-6-10zM8 12a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2z"/>
+</svg>
+lluvia
+</button>
+
+<button class="alert-button map-alert">
+<!-- Icono inundación: ola -->
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M0 10c1.333-2 4-2 5 0s3-2 4 0 3-2 4 0v6H0v-6z"/>
+</svg>
+inundación
+</button>
+
+
+
     <div id="map"></div>
+
+
+
+</div>
+
+<!-- Panel de búsqueda -->
+<div id="search-panel">
     <div id="coords">Lat: --, Lng: --</div>
 
+    <div id="search-coordinates">
+    <label for="latInput" class="label">Coordenadas:</label>
+    <input type="text" id="latInput" placeholder="latitud" class="input">
+    <input type="text" id="lngInput" placeholder="longitud" class="input">
+    <button id="searchCoordsBtn" class="button">Buscar</button>
+    </div>
 
-<!-- Barra de búsqueda por coordenada -->
-<div id="search-coordinates" class="search-box">
-    <label for="latInput" class="label">Buscar por Coordenada:</label>
-    <input type="text" id="latInput" placeholder="latitud" class="input" oninput="validateCoordinatesInput(event, 'lat')">
-    <input type="text" id="lngInput" placeholder="longitud" class="input" oninput="validateCoordinatesInput(event, 'lng')">
-    <button id="searchCoordsBtn" class="button" onclick="searchByCoordinates()">Buscar Coordenadas</button>
+    <div id="search-name" style="margin-top:10px;">
+    <label for="textInput" class="label">Nombre:</label>
+    <input type="text" id="textInput" placeholder="ejemplo: Colombia" class="input">
+    <button id="searchNameBtn" class="button">Buscar</button>
+    </div>
+
+
+
+
 </div>
-
-<!-- Barra de búsqueda por nombre/pais -->
-<div id="search-name" class="search-box">
-    <label for="textInput" class="label">Buscar por Nombre:</label>
-    <input type="text" id="textInput" placeholder="ejemplo: ee.uu" class="input" oninput="validateTextInput(event)">
-    <button id="searchNameBtn" class="button" onclick="searchByName()">Buscar por Nombre</button>
-</div>
-
-
-
-
 </section>
 
-<footer class="footer">
-    <h1>Todos los derechos de autor estan reservados - politica de copytright 2025 <br>
-    Los datos proporcionados aqui son totalmente legales y disponbiles en la pagina de NASA</h1>
-</footer>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="scripts/map.js"></script>
+
+
+<div class="footer">
+<footer>
+    © 2025 Data4Earth. Todos los derechos reservados.<br>
+    Datos recopilados de <strong>NASA SPACES</strong>
+</footer>
+</div>
+
+<!-- Librerías -->
+<script src="https://unpkg.com/three"></script>
+<script src="https://unpkg.com/globe.gl"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="scripts/globe_gl.js"></script>
+<script src="scripts/leaftlet.js"></script>
+<script src="scripts/alert.js"></script>
 </body>
 </html>

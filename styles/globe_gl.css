@@ -1,0 +1,19 @@
+/* Contenedor del globo */
+.globo-wrapper {
+  border-radius: 8px;           
+  overflow: hidden;             
+  background-color: #000;       
+  box-sizing: border-box;       
+  padding: 0 20px;              /* 20px de espacio interno a los lados */
+
+  max-width: calc(100% - 40px); /* ancho máximo con padding respetado */
+  margin: 0 auto;               /* centrado horizontal */
+  display: block;
+}
+
+
+/* Mover el mapa hacia la izquierda sin afectar el globo */
+.map-wrapper.move-left {
+  left: 50px;                  /* ajuste a tu gusto */
+  position: relative;
+}
