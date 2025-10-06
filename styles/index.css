@@ -460,7 +460,7 @@ html {
   position: fixed;
   top: 20px; /* se mantiene, pero estará oculto inicialmente */
   right: 20px;
-  background-color: #e53935;
+  background-color: #c02b28;
   color: white;
   border: none;
   padding: 12px 18px;
@@ -484,7 +484,7 @@ html {
 }
 
 .alert-button:hover {
-  background-color: #c62828;
+  background-color: #711b1b;
   transform: translateY(-2px);
 }
 
